@@ -13,14 +13,9 @@ func main() {
 		fmt.Println("Error", err)
 		os.Exit(1)
 	}
-	lw := logWriter{}
-	io.Copy(lw, resp.Body)
-	// bs := make([]byte, 99999)
-	// resp.Body.Read(bs)
-	// fmt.Println(string(bs))
-}
 
-func (logWriter) Write(bs []byte) (int, error) {
-	fmt.Println("bla bla bla", string(bs))
-	return len(bs), nil
+	bs := make([]byte, 99999)
+	resp.Body.Read(bs)
+	fmt.Println(string(bs))
+}
 }
