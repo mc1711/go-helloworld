@@ -3,7 +3,6 @@ package main
 import "net/http"
 import "fmt"
 import "os"
-import "io"
 
 type logWriter struct{}
 
@@ -17,5 +16,4 @@ func main() {
 	bs := make([]byte, 99999)
 	resp.Body.Read(bs)
 	fmt.Println(string(bs))
-}
 }
